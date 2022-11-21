@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Option1 : MonoBehaviour
+public class Option2 : MonoBehaviour
 {
-    public int firstIndex;
+    public int secondIndex;
     public Image nationFlag;
-   
+
     // Start is called before the first frame update
     void Start()
     {
         GameManager.Instance.AssignNationArray();
-        FirstSlot();
+        SecondSlot();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void FirstSlot()
+    public void SecondSlot()
     {
-        firstIndex = Random.Range(0, GameManager.Instance.nationDataSet.Length);
-        nationFlag.sprite = GameManager.Instance.nationDataSet[firstIndex].flag;
-        Debug.Log(firstIndex);
+        secondIndex = Random.Range(0, GameManager.Instance.nationDataSet.Length);
+        nationFlag.sprite = GameManager.Instance.nationDataSet[secondIndex].flag;
+        Debug.Log(secondIndex);
     }
 }

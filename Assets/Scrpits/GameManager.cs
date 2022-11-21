@@ -47,5 +47,6 @@ public class GameManager : MonoBehaviour
     {
         nationDataSet = new CountryData[nationData.Length];
         nationDataSet.CopyTo(nationDataSet, 0);
+
     }
 }
