@@ -15,9 +15,9 @@ public class GameData : MonoBehaviour
 
     public CountryData[] AfricanCountryDataSet;
 
-    
+    [HideInInspector]
     public CountryData[] CountrySetPerGame;
-   
+    [HideInInspector]
     public CountryData[] CountryDataSet;
 
     public static GameData Instance;

@@ -2039,7 +2039,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2005869051}
   - component: {fileID: 2005869052}
-  - component: {fileID: 2005869053}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2074,29 +2073,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7c22006dcb93c4c8e4fad8622abcdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2005869053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005869050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35df5c0398c1c7f4d9030babfc3934cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nationData:
-  - name: Angola
-    flag: {fileID: 964688095, guid: cbe1368d263da5a4e9f0d0d4ce008c2f, type: 3}
-    answered: 0
-    asked: 0
-  - name: Algeria
-    flag: {fileID: 2040817983, guid: cbe1368d263da5a4e9f0d0d4ce008c2f, type: 3}
-    answered: 0
-    asked: 0
-  - name: Benin
-    flag: {fileID: -2508578, guid: cbe1368d263da5a4e9f0d0d4ce008c2f, type: 3}
-    answered: 0
-    asked: 0
-  nationDataSet: []

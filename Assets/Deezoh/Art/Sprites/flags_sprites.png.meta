@@ -1103,7 +1103,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zambi
+      name: Zimbabwe
       rect:
         serializedVersion: 2
         x: 486
@@ -1261,12 +1261,12 @@ TextureImporter:
       Sudan: -849269231
       Lesotho: 1629179996
       Egypt: 331344846
-      Zambi: -1882937860
       Bukinafaso: -1676483211
       Namibia: -444350972
       Chad: 1474435341
       Madagascar: 633147138
       Sierra Leone: -1695726262
+      Zimbabwe: -1882937860
       Morocco: -1932241954
       Mauritania: 1373962372
       Eritrea: 6525245
