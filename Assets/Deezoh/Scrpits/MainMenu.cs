@@ -24,6 +24,11 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void Ultimate()
+    {
+        SceneManager.LoadScene("Survivor");
+    }
     //Exits Game
     public void ExitGame()
     {
