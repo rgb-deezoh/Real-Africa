@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Deezoh/Scenes/Survivor.unity
     guid: c6df47d161e0c3143929490a7fd0645c
+  - enabled: 1
+    path: Assets/Deezoh/Scenes/Dior.unity
+    guid: cb16b32f6d4380e46b0b0b33df3da7a5
   m_configObjects: {}
