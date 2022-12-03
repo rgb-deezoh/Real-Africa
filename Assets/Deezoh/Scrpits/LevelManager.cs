@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.Events;
+using System;
 
 public class LevelManager : MonoBehaviour
 {
+    public ParticleSystem winPart;
+    private AudioManager audioMang;
     //Anim
     public Animator ques_anim;
     public Animator answer_anim;
@@ -22,6 +25,10 @@ public class LevelManager : MonoBehaviour
 
     public TextMeshProUGUI pointsText;
     public TextMeshProUGUI totalPoints;
+
+    public TextMeshProUGUI complete;
+    public TextMeshProUGUI loose;
+
     public int points;
 
     //TextHolders
@@ -41,6 +48,8 @@ public class LevelManager : MonoBehaviour
     public GameObject retry;
     public GameObject next;
     public GameObject totalPointsHolder;
+
+    public int freshLength;
     //quest & ans
     public GameObject level;
 
@@ -93,7 +102,7 @@ public class LevelManager : MonoBehaviour
     {
         remainingTime = 60;
         toggleSystem = FindObjectOfType<ToggleSystem>();
-        Debug.Log(Answer());
+        audioMang = FindObjectOfType<AudioManager>();
     }
     // Update is called once per frame
     void Update()
@@ -119,12 +128,11 @@ public class LevelManager : MonoBehaviour
         RatePlayer();
     }
     //real logic
-    public void GetIndex() {
-        correctIndex = Random.Range(0, correctAnswer.Length);
-        correctAnswer[correctIndex] = new Quiz(correctAnswer[correctIndex].question, correctAnswer[correctIndex].answer, false, false);
-        correctIndex = Random.Range(0, correctAnswer.Length);
+    public void GetIndex() { 
+        correctIndex = UnityEngine.Random.Range(0, correctAnswer.Length);
         correctAnswer[correctIndex] = new Quiz(correctAnswer[correctIndex].question, correctAnswer[correctIndex].answer, false, false);
         questionHolder.text = correctAnswer[correctIndex].question;
+
         correctAnswer[correctIndex].asked = true;
         
         //wrong answer index one
@@ -134,7 +142,7 @@ public class LevelManager : MonoBehaviour
         wrongIndexTwo = correctIndex;
         wrongAnswerTwo[wrongIndexTwo] = new WrongTwo(wrongAnswerTwo[wrongIndexTwo].wrongTwo);
 
-        ques_pos = Random.Range(0, options.Length);
+        ques_pos = UnityEngine.Random.Range(0, options.Length);
 
         // answer position
         switch (ques_pos)
@@ -176,6 +184,9 @@ public class LevelManager : MonoBehaviour
             next.SetActive(true);
             totalPointsHolder.SetActive(true);
             totalPoints.text = "" + points;
+            winPart.Play();
+            audioMang.mech.PlayOneShot(audioMang.winEffect, 1.0f);
+            complete.gameObject.SetActive(true);
         }
         else if(points >= 50)
         {
@@ -184,6 +195,9 @@ public class LevelManager : MonoBehaviour
             next.SetActive(true);
             totalPointsHolder.SetActive(true);
             totalPoints.text = "" + points;
+            winPart.Play();
+            audioMang.mech.PlayOneShot(audioMang.winEffect, 1.0f);
+            complete.gameObject.SetActive(true);
         }
         else
         {
@@ -191,6 +205,7 @@ public class LevelManager : MonoBehaviour
             retry.SetActive(true);
             totalPointsHolder.SetActive(true);
             totalPoints.text = "" + points;
+            loose.gameObject.SetActive(true);
         }
     }
     public void Dior()
@@ -209,5 +224,27 @@ public class LevelManager : MonoBehaviour
         GetIndex();
         level.SetActive(true);
         tapped = true;
+    }
+
+    public int ReduceLength()
+    {
+        int arrLength = correctAnswer.Length;
+        for (int index = correctIndex; index < arrLength - 1; index++)
+        {
+            
+            correctAnswer[index] = correctAnswer[index + 1];
+            arrLength --;
+        }
+        return arrLength;
+    }
+    //Remove element after it has been answered
+    public void RemoveElement<T>(ref T[] arr, int index)
+    {
+        for (int i = index; i < arr.Length - 1; i++)
+        {
+            arr[i] = arr[i + 1];
+        }
+
+        Array.Resize(ref arr, arr.Length - 1);
     }
 }

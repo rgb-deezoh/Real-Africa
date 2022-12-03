@@ -1215,6 +1215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714345e3099a06c4d872909bfdeeb61f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mech: {fileID: 818499181}
+  winEffect: {fileID: 8300000, guid: 0ccc6494d20533948b6485d47551381a, type: 3}
+  correctAnserClip: {fileID: 8300000, guid: ea7720aa7bc22954aa10065325c537d5, type: 3}
+  wrongAnswerClip: {fileID: 8300000, guid: 4ee1557c60baad549a1bb1dd8be90e3a, type: 3}
 --- !u!1 &899896409
 GameObject:
   m_ObjectHideFlags: 0

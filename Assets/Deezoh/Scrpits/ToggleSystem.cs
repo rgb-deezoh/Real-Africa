@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using System;
+
 
 public class ToggleSystem : MonoBehaviour
 {
@@ -10,11 +12,13 @@ public class ToggleSystem : MonoBehaviour
     Toggle choice;
 
     private LevelManager levelManager;
+    private AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
         toggles = GetComponent<ToggleGroup>();
         levelManager = FindObjectOfType<LevelManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -22,6 +26,9 @@ public class ToggleSystem : MonoBehaviour
     {
         if (levelManager.isGameActive && choice.isOn)
         {
+            levelManager.RemoveElement(ref levelManager.correctAnswer, levelManager.correctIndex);
+            levelManager.RemoveElement(ref levelManager.wrongAnswerOne, levelManager.wrongIndexOne);
+            levelManager.RemoveElement(ref levelManager.wrongAnswerTwo, levelManager.wrongIndexTwo);
             levelManager.GetIndex();
             choice.isOn = false;
         }
@@ -34,11 +41,13 @@ public class ToggleSystem : MonoBehaviour
         {
             levelManager.points += 5;
             levelManager.pointsText.text = "Points: " + levelManager.points;
+            audioManager.mech.PlayOneShot(audioManager.correctAnserClip, 1.0f);
         }
         else
         {
             levelManager.points -= 5;
             levelManager.pointsText.text = "Points: " + levelManager.points;
+            audioManager.mech.PlayOneShot(audioManager.wrongAnswerClip, 1.0f);
         }
     }
 }
