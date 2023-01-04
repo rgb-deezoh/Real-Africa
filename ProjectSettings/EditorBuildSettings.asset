@@ -6,12 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Andrew/Assets/Scenes/MainMenu.unity
+    path: Assets/Project/Scenes/MainMenu.unity
     guid: 8702084fc0949dd478afde291f675310
   - enabled: 1
-    path: Assets/Deezoh/Scenes/Survivor.unity
+    path: Assets/Project/Scenes/Level_1.unity
     guid: c6df47d161e0c3143929490a7fd0645c
   - enabled: 1
-    path: Assets/Deezoh/Scenes/Dior.unity
-    guid: cb16b32f6d4380e46b0b0b33df3da7a5
+    path: Assets/Project/Scenes/Level_2.unity
+    guid: d6688dbba9c77474293c4c5f54ec85c9
+  - enabled: 1
+    path: Assets/Project/Scenes/Level_3.unity
+    guid: e25c9b99479d34c409cdfc5be6542b30
+  - enabled: 1
+    path: Assets/Project/Scenes/Level_4.unity
+    guid: 7395e0ebe53d41147ba1e45b412ef836
+  - enabled: 1
+    path: Assets/Project/Scenes/Level_5.unity
+    guid: d2a300fe8de7676448096ca37b712b3b
+  - enabled: 1
+    path: Assets/Project/Scenes/Level_6.unity
+    guid: ab643d3fb5ef77f4d92c797f6fe853df
+  - enabled: 1
+    path: Assets/Project/Scenes/Level_7.unity
+    guid: b2dac68f95087ff428cfc9e65e2ed6ba
   m_configObjects: {}
